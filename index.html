@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>user name and password validation</title>
+<link rel='stylesheet' href="stylesheet.css"/>
+</head>
+<body>
+<script>
+function CheckPassword() 
+{ 
+ var inputtxt=document.getElementById("pass").value;
+ var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+if(inputtxt.match(decimal)) 
+{ 
+return true;
+}
+else
+{ 
+alert('Wrong...! please try another password. Use the given password instruction');
+return false;
+}
+} 
+
+  function phonenumber()
+{  
+  var num=document.getElementById("number").value;
+  var num2 = /^\d{10}$/;
+  if(num.match(num2))
+        {
+      return true;
+        }
+      else
+        {
+        alert("please enter valid number");
+        return false;
+        }
+}
+
+function matchpass(){
+
+var pass1=document.getElementById("pass").value;
+var pass2=document.getElementById("cpass").value;
+
+if(pass1.match(pass2)){
+return true;
+}else{
+alert("password not matched");
+return false;
+}
+}
+
+function notnull(){
+ var v=document.getElementById("Username").value;
+ if(v.length==0){
+    alert("username cannot be empty");
+	return false;
+ }
+ else{
+ return true;
+ } 
+}
+</script>
+
+
+<form>
+<h3><br>Enter your Username:</h3>
+<input type="text" id="Username">
+
+<h3><br>Enter your password:(password length (8-15). It must contain lowercase,uppercase,number and special character)</h3>
+<input type="password" id="pass" onblur="CheckPassword()">
+
+<h3><br>confirm password:</h3>
+<input type="password" id="cpass" onblur="matchpass()">
+
+<h3><br>mobile number:</h3>
+<input type="text" id="number" onblur="phonenumber()">
+
+<h3><button class="button button1" onclick="notnull()" >submit</button></h3>
+</form>
+
+</body>
+</html>
